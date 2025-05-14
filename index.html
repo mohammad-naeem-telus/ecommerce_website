@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Store Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1 onclick="showHome()">My Store</h1>
+    <div id="cart-icon">🛒 Cart</div>
+  </header>
+
+  <main>
+    <div class="products-container" id="products"></div>
+
+    <div class="cart-container hidden" id="cart">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <button class="checkout-button" onclick="checkout()">Checkout</button>
+      <button class="back-button" onclick="showHome()">← Back to Home</button>
+    </div>
+
+    <div class="checkout-container hidden" id="checkout-success">
+      <h2>✅ Checkout Successful!</h2>
+      <p>Thank you for your purchase.</p>
+      <button class="back-button" onclick="showHome()">← Back to Home</button>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+
+</body>
+
+</html>
