@@ -3,6 +3,7 @@ const cartEl = document.getElementById('cart');
 const cartItemsEl = document.getElementById('cart-items');
 const checkoutEl = document.getElementById('checkout-success');
 const cartIcon = document.getElementById('cart-icon');
+const cartCountEl = document.getElementById('cart-count');
 
 let cart = [];
 
@@ -36,6 +37,7 @@ fetch('https://fakestoreapi.com/products')
 function addToCart(product) {
   cart.push(product);
   alert('Added to cart!');
+  updateCartCount();
 }
 
 // Show cart
@@ -49,12 +51,17 @@ cartIcon.addEventListener('click', () => {
 // Render cart items
 function renderCart() {
   cartItemsEl.innerHTML = '';
+  const checkoutButton = document.querySelector('.checkout-button');
+
   if (cart.length === 0) {
     cartItemsEl.innerHTML = '<p>Your cart is empty.</p>';
+    checkoutButton.style.display = 'none';
     return;
   }
 
-  cart.forEach(item => {
+  checkoutButton.style.display = 'inline-block';
+
+  cart.forEach((item, index) => {
     const div = document.createElement('div');
     div.className = 'cart-item';
     div.innerHTML = `
@@ -63,14 +70,28 @@ function renderCart() {
         <h4>${item.title}</h4>
         <p>$${item.price}</p>
       </div>
+      <button class="remove-button" onclick="removeFromCart(${index})">Remove</button>
     `;
     cartItemsEl.appendChild(div);
   });
 }
 
+// Remove from cart
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+  updateCartCount();
+}
+
+// Update cart count badge
+function updateCartCount() {
+  cartCountEl.textContent = cart.length;
+}
+
 // Checkout
 function checkout() {
   cart = [];
+  updateCartCount();
   cartEl.classList.add('hidden');
   checkoutEl.classList.remove('hidden');
 }
@@ -80,4 +101,5 @@ function showHome() {
   productsEl.classList.remove('hidden');
   cartEl.classList.add('hidden');
   checkoutEl.classList.add('hidden');
+  updateCartCount();
 }
