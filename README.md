@@ -13,7 +13,6 @@ It fetches products from the [Fake Store API](https://fakestoreapi.com/), allows
 - ✅ Checkout flow
 - 🔁 Return to homepage
 - 🔢 Live cart item count badge
-- 🧼 Hide checkout button if the cart is empty
 
 ---
 
@@ -35,5 +34,8 @@ ecommerce_website/
    git clone https://github.com/mohammad-naeem-telus/ecommerce_website.git
    cd ecommerce_website
 
-![image](https://github.com/user-attachments/assets/8a71f21a-fd40-4660-8da5-d4453c664f74)
+![image](https://github.com/user-attachments/assets/90a1bd8a-ef2b-46be-9489-ce12523e1e55)
+
+![image](https://github.com/user-attachments/assets/f9248059-3fb6-494f-99ee-d59560ac3984)
+
 
